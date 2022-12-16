@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -20,7 +21,7 @@ export class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    return Math.round((this.state.good * 100) / this.countTotalFeedback());
+    return Math.round((this.state.good * 100) / this.countTotalFeedback()) || 0;
   };
 
   render() {
@@ -29,7 +30,7 @@ export class App extends Component {
     return (
       <>
         <section className={styles.sectionWrapper}>
-          <Section title="Please leave feedback" className={styles.container}>
+          <Section title="Please leave feedback">
             <FeedbackOptions
               options={options}
               onLeaveFeedback={this.onLeaveFeedback}
@@ -37,14 +38,18 @@ export class App extends Component {
           </Section>
         </section>
         <section className={styles.sectionWrapper}>
-          <Section title="Statistics" className={styles.container}>
-            <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
+          <Section title="Statistics">
+            {this.countTotalFeedback() ? (
+              <Statistics
+                good={this.state.good}
+                neutral={this.state.neutral}
+                bad={this.state.bad}
+                total={this.countTotalFeedback()}
+                positivePercentage={this.countPositiveFeedbackPercentage()}
+              />
+            ) : (
+              <Notification message="There is no feedback" />
+            )}
           </Section>
         </section>
       </>
