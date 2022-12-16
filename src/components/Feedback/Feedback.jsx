@@ -9,15 +9,24 @@ export class Feedback extends Component {
   };
 
   addGood = () => {
-    this.setState(state => ({ good: state.good + 1 }));
+    this.setState(prevState => ({ good: prevState.good + 1 }));
   };
 
   addNeutral = () => {
-    this.setState(state => ({ neutral: state.neutral + 1 }));
+    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
   };
 
   addBad = () => {
-    this.setState(state => ({ bad: state.bad + 1 }));
+    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  };
+
+  countTotalFeedback = () => {
+    const totalFeedbacksValues = Object.values(this.state);
+    return totalFeedbacksValues.reduce((acc, num) => acc + num, 0);
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    return Math.round((this.state.good * 100) / this.countTotalFeedback());
   };
 
   render() {
@@ -39,6 +48,11 @@ export class Feedback extends Component {
             <li>Good: {this.state.good}</li>
             <li>Neutral: {this.state.neutral}</li>
             <li>Bad: {this.state.bad}</li>
+            <li>Total: {this.countTotalFeedback()}</li>
+            <li>
+              Positive Feedback: {this.countPositiveFeedbackPercentage() || '0'}
+              %
+            </li>
           </ul>
         </div>
       </section>
