@@ -11,15 +11,15 @@ button {
   padding: 10px 15px;
   border: none;
   outline: none;
-  color: #fff;
-  background-color: #04aa6d;
+  background-color: white;
   border-radius: 15px;
   box-shadow: 0 5px #999;
   cursor: pointer;
+  transition: all 200ms ease-in-out;
 }
 
 button:active {
-  background-color: #3e8e41;
+  background-color: #a5c0d3;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
