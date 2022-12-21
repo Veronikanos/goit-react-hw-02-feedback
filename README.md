@@ -10,7 +10,7 @@ Styling is done by CSS modules.
 
 Coded by Tlostiuk Veronika.
 
-## PHONEBOOK
+## FEEDBACK
 
 Interface displays statistics about the collected feedback. There is the total number of collected reviews from all categories and the percentage of positive reviews. 
 
