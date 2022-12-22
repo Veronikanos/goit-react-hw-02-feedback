@@ -1,4 +1,4 @@
-# Homework 2-2 by React course, GoIT school - Feedback
+# Homework 2-1 by React course, GoIT school - Feedback
 
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
