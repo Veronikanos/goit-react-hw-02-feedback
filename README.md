@@ -27,7 +27,7 @@ Interface displays statistics about the collected feedback. There is the total n
 ### HOW TO RUN THIS PROJECT LOCALLY
 
 Clone this repo:
-`git clone https://veronikanos.github.io/goit-react-hw-01-components/`
+`git clone https://github.com/Veronikanos/goit-react-hw-02-feedback.git`
 
 In the project directory, you can run:
 
